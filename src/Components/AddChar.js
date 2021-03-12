@@ -21,7 +21,7 @@ class AddChar extends Component {
           <div className="input-list">AC: <input className="ac"/></div>
           <div className="input-list">Max HP: <input className="maxhp"/></div>
         </section>
-        <button className="submit-new">Submit New Character</button>
+        <button className="submit-new" onClick={this.addChar}>Submit New Character</button>
       </section>
     </section>
     )
