@@ -1,38 +1,112 @@
-.App {
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh
+}
+
+header {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  height: 10vh;
   text-align: center;
+  padding-top: 20px;
+  -webkit-box-shadow: 0 1px 9px 1px rgb(110, 110, 110);
+  -moz-box-shadow: 0 1px 9px 1px rgb(112, 112, 112);
+  box-shadow: 0 1px 9px 1px rgb(90, 90, 90);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.char-list {
+  width: 70vw;
+  height: 85vh;
+  border: grey solid 1px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.add-menu {
+  width: 30vw;
+  height: 85vh;
+  border: grey solid 1px;
+}
+
+.add-info {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding:30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.input-list {
+  margin: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.name {
+  margin-left: 25px;
+  height:30px
 }
+
+.race {
+  margin-left: 34px;
+  height:30px;
+}
+
+.class {
+  height:30px;
+  margin-left: 32px
+}
+
+.weapon {
+  height:30px;
+  margin-left: 10px
+}
+
+.img-add {
+  height:30px;
+  width: 168px;
+  margin-left: 24px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.ac {
+  margin-left: 15px;
+  border: solid grey 1px;
+  width:50px;
+  height:50px;
+}
+
+.maxhp {
+  margin-left: 15px;
+  border: solid grey 1px;
+  width:50px;
+  height:50px;
+}
+
+.ac-hp {
+  display: flex;
+
+}
+
+.submit-new {
+  margin-top: 40px;
+  height:10vh;
+  width: 25vw;
+  font-size: 30px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background:transparent;
+  border:;
+  border-radius: 10px;
+}
+
+.submit-new:hover {
+  background-color: grey;
+  cursor:pointer;
+}
+
+
