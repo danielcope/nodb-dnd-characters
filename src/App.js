@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Header from './Components/Header'
-import EditHp from './Components/EditHp'
 import AddChar from './Components/AddChar'
 import CharList from './Components/CharList'
 import axios from 'axios'

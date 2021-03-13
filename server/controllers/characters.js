@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
-
 const characters = [{
   "id":0,
   "name":"tommy b barleybuck",
