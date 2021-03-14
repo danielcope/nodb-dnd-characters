@@ -21,7 +21,7 @@ module.exports = {
     res.status(200).send(characters);
   },
 
-  addChar: (req,res) => { 
+  addNewChar: (req,res) => { 
     const {name,race,charClass,ac,weapon,maxHp} = req.body
         
     const newCharacter = {
@@ -40,9 +40,9 @@ module.exports = {
     res.status(200).send(characters)
   },
 
-  editHp: (req,res) => {
+  // editHp: (req,res) => {
 
-  },
+  // },
 
   deleteChar: (req,res) => {
     const {id} = req.params;

@@ -5,7 +5,7 @@ const app = express()
 app.use(express.json())
 
 app.get('/api/characters', characters.showChar)
-app.post('/api/characters', characters.addChar)
+app.post('/api/characters', characters.addNewChar)
 app.put('/api/characters/:id', characters.editHp)
 app.delete('/api/characters/:id', characters.deleteChar)
 
