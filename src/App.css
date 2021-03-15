@@ -162,14 +162,27 @@ img {
   align-items: center;
 }
 
-.char-ac  {
+.char-ac {
   margin:5px;
+  font-size: 24px;
+}
+
+.char-hp-section {
+  margin-left: 15px;
   font-size: 24px;
 }
 
 .char-hp  {
   margin:5px;
-  font-size: 24px;
+  font-size: 22px;
+  width: 3vw;
+  border: grey solid 1px;
+  color:black;
+}
+
+.char-hp::placeholder{
+  color:black;
+  text-align: center;
 }
 
 .char-maxHp {

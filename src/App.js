@@ -4,31 +4,20 @@ import AddChar from './Components/AddChar'
 import CharList from './Components/CharList'
 import axios from 'axios'
 
-
 import './App.css';
-import characters from '../server/controllers/characters'
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
       characters:[],
-      userInput: {
-        name:'',
-        race:'',
-        class:'',
-        ac:0,
-        Weapon:'',
-        Image:'',
-        MaxHp:0
-      },
       userNameInput:'',
       userRaceInput:'',
       userClassInput:'',
-      userAcInput:'',
+      userAcInput:0,
       userWeaponInput:'',
-      userMaxHpInput:'',
-      userImageInput:''
+      userMaxHpInput:0,
+      userImageInput:'',
     }
     
     this.deleteChar = this.deleteChar.bind(this);
@@ -53,59 +42,63 @@ class App extends Component {
   
   handleRaceChange = (e) => {
     this.setState({ userRaceInput:e.target.value })
-    console.log(this.state.userRaceInput);
   }
   
   handleClassChange = (e) => {
     this.setState({ userClassInput:e.target.value })
-    console.log(this.state.userClassInput);
   }
   handleAcChange = (e) => {
     this.setState({ userAcInput:e.target.value })
-    console.log(this.state.userAcInput);
   }
   
   handleWeaponChange = (e) => {
     this.setState({ userWeaponInput:e.target.value })
-    console.log(this.state.userWeaponInput);
   }
   
   handleMaxHpChange = (e) => {
     this.setState({ userMaxHpInput:e.target.value })
-    console.log(this.state.userMaxHpInput);
   }
   
   handleImageChange = (e) => {
     this.setState({ userImageInput:e.target.value })
-    console.log(this.state.userImageInput);
   }
 
-  submitChar = () => {
-    this.setState({ userInput: {
-      name:this.state.userNameInput,
-      race:this.state.userRaceInput,
-      class:this.state.userClassInput,
-      ac:this.state.userAcInput,
-      weapon:this.state.userWeaponInput,
-      Image:this.state.userImageInput,
-      MaxHp:this.state.userMaxHpInput
-    }
-    })
-    this.addChar()
-    console.log(this.state.userInput);
+
+addChar = () => {
+  
+  const userInput = {
+    id:0,
+    name:this.state.userNameInput,
+    race:this.state.userRaceInput,
+    class:this.state.userClassInput,
+    ac:this.state.userAcInput,
+    weapon:this.state.userWeaponInput,
+    maxHp:this.state.userMaxHpInput,
+    currentHp:this.state.userMaxHpInput,
+    img:this.state.userImageInput
   }
   
+  axios.post('/api/characters', { userInput })
+  .then(res => {
+    this.setState({ userInput:res.data })
+    console.log(res)
+  })
+  .catch(err => console.log(err))
+}
 
-  addChar = event => {
-    event.preventDefault();
 
-    axios.post('/api/characters', { userInput })
+
+editHp = (id,currentHp) => {
+  
+  let newHp = {currentHp:currentHp}
+    
+    axios.put(`api/characters/${id}`, newHp)
       .then(res => {
-        // this.setState({ userInput:res.data })
-        console.log(res);
+        this.setState({ characters:res.data })
       })
       .catch(err => console.log(err))
-  }
+    }
+
 
   deleteChar (id) {
     axios.delete(`/api/characters/${id}`)
@@ -114,20 +107,22 @@ class App extends Component {
       })
       .catch(err => console.log(err))
   }
+
   
   render(){ 
     return (
-      <body>
+      <div>
         <header className="App">
           <Header/>
         </header>
         <main>
           <section className="char-list">
-            <CharList characters={this.state.characters} deleteChar={this.deleteChar}/>
+            <CharList characters={this.state.characters} deleteChar={this.deleteChar}
+            editHp={this.editHp}
+            />
           </section>
           <section className="add-menu">
             <AddChar 
-            submitChar={this.submitChar}
             handleNameChange={this.handleNameChange} 
             handleRaceChange={this.handleRaceChange}
             handleClassChange={this.handleClassChange}
@@ -135,10 +130,11 @@ class App extends Component {
             handleWeaponChange={this.handleWeaponChange}
             handleMaxHpChange={this.handleMaxHpChange}
             handleImageChange={this.handleImageChange}
+            addChar={this.addChar}
             />
           </section>
         </main>
-      </body>
+      </div>
     );
   }
 

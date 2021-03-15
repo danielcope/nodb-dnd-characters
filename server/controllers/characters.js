@@ -14,7 +14,6 @@ const characters = [{
 
 let id = 1;
 
-// showChars,addChar,editHp,deleteChar
 module.exports = {
 
   showChar: (req,res) => {
@@ -22,27 +21,24 @@ module.exports = {
   },
 
   addNewChar: (req,res) => { 
-    const {name,race,charClass,ac,weapon,maxHp} = req.body
-        
-    const newCharacter = {
-      "id":id,
-      "name":name,
-      "race":race,
-      "class":charClass,
-      "ac":ac,
-      "weapon":weapon,
-      "weapon":maxHp
-    }
+    const {userInput} = req.body
+      
+    userInput.id = id
 
     id++
 
-    characters.push(newCharacter)
+    characters.push(userInput)
     res.status(200).send(characters)
   },
 
-  // editHp: (req,res) => {
-
-  // },
+  editHp: (req,res) => {
+    const {id} = req.params
+    const {currentHp} = req.body
+  
+    const character = characters.findIndex(ele => ele.id === +id)
+    character.currentHp = currentHp
+    res.status(200).send(characters)
+  },
 
   deleteChar: (req,res) => {
     const {id} = req.params;

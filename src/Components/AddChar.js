@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 
 class AddChar extends Component {
-  constructor (){
-    super();
-}
-
-
+ 
 
   render (){
     return(
@@ -21,7 +17,7 @@ class AddChar extends Component {
           <div className="input-list">AC: <input className="ac" onChange={(e)=>this.props.handleAcChange(e)}/></div>
           <div className="input-list">Max HP: <input className="maxhp" onChange={(e)=>this.props.handleMaxHpChange(e)}/></div>
         </section>
-        <button className="submit-new" onClick={this.props.submitChar}>Submit New Character</button>
+        <button className="submit-new" onClick={this.props.addChar}>Submit New Character</button>
       </section>
     </section>
     )
