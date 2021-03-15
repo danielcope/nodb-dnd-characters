@@ -67,7 +67,6 @@ class App extends Component {
 addChar = () => {
   
   const userInput = {
-    id:0,
     name:this.state.userNameInput,
     race:this.state.userRaceInput,
     class:this.state.userClassInput,

@@ -24,7 +24,6 @@ module.exports = {
     const {userInput} = req.body
       
     userInput.id = id
-
     id++
 
     characters.push(userInput)
@@ -45,8 +44,8 @@ module.exports = {
   deleteChar: (req,res) => {
     const {id} = req.params;
 
-    const index = characters.findIndex(ele =>
-      ele.id === id);
+    const index = characters.findIndex(element =>
+      element.id === +id);
     characters.splice(index, 1)
     res.status(200).send(characters)
   }
