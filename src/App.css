@@ -133,61 +133,93 @@ img {
   margin:30px;
 }
 
+.char-img {
+  width: 40%
+}
+
 .individual-char-list {
   display:flex;
   flex-direction: column;
+  width:30%;
 }
 
 .char-name {
   text-transform: capitalize;
   margin:5px;
   margin-top: 10px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .char-race {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-transform: capitalize;
   margin:5px;
 }
 .char-class {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-transform: capitalize;
   margin:5px;
 }
 .char-weapon {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-transform: capitalize;
   margin:5px;
 }
 
 .char-ac-hp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  float: right;
+  height: 40%;
+  width: 30%;
+  border-left:  rgb(25, 25, 53) solid 1px;
+  border-bottom:  rgb(25, 25, 53) solid 1px;
+}
+
+.hp-submit {
+  position: relative;
+  left:1vw;
+  background: transparent;
+  padding:5px;
+  border-radius: 3px;
+  border: 1px grey solid;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hp-submit:hover {
+  cursor: pointer;
+  background: rgb(25, 25, 53);
+  color: rgb(206, 170, 240);
 }
 
 .char-ac {
   margin:5px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .char-hp-section {
-  margin-left: 15px;
-  font-size: 24px;
+  margin: 15px;
+  font-size: 20px;
 }
 
 .char-hp  {
   margin:5px;
-  font-size: 22px;
-  width: 3vw;
-  border: grey solid 1px;
+  font-size: 24px;
+  width: 2vw;
+  border: rgb(221, 221, 221) solid 1px;
   color:black;
 }
 
 .char-hp::placeholder{
-  color:black;
+  color:rgb(0, 0, 0);
   text-align: center;
+}
+
+.char-hp:focus {
+  background: rgb(206, 170, 240);
 }
 
 .char-maxHp {
   margin:5px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .remove-char {
@@ -195,4 +227,16 @@ img {
   margin: 10px;
   position: relative;
   left: 50px;
+  top: 25px;
+  border:rgb(25, 25, 53) solid 1px;
+  background: transparent;
+  border-radius: 3px;
+  padding: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.remove-char:hover {
+  cursor: pointer;
+  background: rgb(25, 25, 53);
+  color: rgb(206, 170, 240);
 }

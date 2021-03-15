@@ -32,10 +32,12 @@ module.exports = {
   },
 
   editHp: (req,res) => {
+
     const {id} = req.params
     const {currentHp} = req.body
+    console.log(currentHp);
   
-    const character = characters.findIndex(ele => ele.id === +id)
+    const character = characters.find(element => element.id === +id)
     character.currentHp = currentHp
     res.status(200).send(characters)
   },

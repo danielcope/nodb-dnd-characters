@@ -84,20 +84,26 @@ addChar = () => {
     console.log(res)
   })
   .catch(err => console.log(err))
+
+  this.componentDidMount()
+
 }
 
 
 
-editHp = (id,currentHp) => {
-  
-  let newHp = {currentHp:currentHp}
+  editHp = (id,currentHp) => {
     
-    axios.put(`api/characters/${id}`, newHp)
-      .then(res => {
+    const newHp = {currentHp:currentHp}
+      
+    console.log(id);
+
+    axios.put(`/api/characters/${id}`, newHp)
+      .then((res) => {
         this.setState({ characters:res.data })
+        // console.log(res);
       })
       .catch(err => console.log(err))
-    }
+  }
 
 
   deleteChar (id) {
@@ -117,7 +123,9 @@ editHp = (id,currentHp) => {
         </header>
         <main>
           <section className="char-list">
-            <CharList characters={this.state.characters} deleteChar={this.deleteChar}
+            <CharList 
+            characters={this.state.characters} 
+            deleteChar={this.deleteChar}
             editHp={this.editHp}
             />
           </section>
