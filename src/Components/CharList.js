@@ -28,7 +28,6 @@ class CharList extends Component {
       <span className="char-class" >Class: {ele.class}</span>
       <span className="char-weapon" >Weapon: {ele.weapon}</span>
       <span className="char-ac" >AC: {ele.ac}</span>
-    <button className="remove-char" onClick={() => this.props.deleteChar(ele.id)}>Remove</button>
     </section>
     <div className="char-ac-hp">
       <div className="char-hp-section">
@@ -37,6 +36,7 @@ class CharList extends Component {
       <span className="char-maxHp">/{ele.maxHp}</span>
       </div>
     <button className="hp-submit" onClick={() => this.handleEdit(ele.id)}>Submit New HP</button>
+    <button className="remove-char" onClick={() => this.props.deleteChar(ele.id)}>Remove</button>
     </div>    
   </main>
   ))

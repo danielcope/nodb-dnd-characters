@@ -33,6 +33,7 @@ class App extends Component {
         this.setState({ characters:res.data })
       })
       .catch(err => console.log(err))
+
     }
 
   handleNameChange = (e) => {
@@ -85,24 +86,24 @@ addChar = () => {
   .catch(err => console.log(err))
 
   this.componentDidMount()
-
+  
 }
 
 
 
-  editHp = (id,currentHp) => {
-    
-    const newHp = {currentHp:currentHp}
-      
-    console.log(id);
-
-    axios.put(`/api/characters/${id}`, newHp)
-      .then((res) => {
-        this.setState({ characters:res.data })
-        // console.log(res);
-      })
-      .catch(err => console.log(err))
-  }
+editHp = (id,currentHp) => {
+  
+  const newHp = {currentHp:currentHp}
+  
+  console.log(id);
+  
+  axios.put(`/api/characters/${id}`, newHp)
+  .then((res) => {
+    this.setState({ characters:res.data })
+    // console.log(res);
+  })
+  .catch(err => console.log(err))
+}
 
 
   deleteChar (id) {
@@ -116,7 +117,7 @@ addChar = () => {
   
   render(){ 
     return (
-      <div>
+      <body>
         <header className="App">
           <Header/>
         </header>
@@ -141,7 +142,7 @@ addChar = () => {
             />
           </section>
         </main>
-      </div>
+      </body>
     );
   }
 
