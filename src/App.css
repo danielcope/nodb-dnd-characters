@@ -119,7 +119,7 @@ img {
   padding:10px;
   max-width: 50%;
   max-height: 100%;
-  border: grey solid 1px;
+  border-right: grey solid 1px;
 }
 
 .chars-list {
